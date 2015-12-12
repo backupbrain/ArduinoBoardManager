@@ -40,16 +40,66 @@ Arduino::Arduino() {
   memset(FEATURES, false, NUM_FEATURES);
 
 
-#if defined(__AVR_ATmega328P__) || defined(__AVR_ATmega168__)
-  char* boardName = "UNO";
-#elif defined(__AVR_ATmega32U4__) || defined(__AVR_ATmega16U4__)
-  char* boardName = "Leonardo";
-#elif defined(__AVR_ATmega1280__) || defined(__AVR_ATmega2560__)
-  char* boardName = "Mega";
-  FEATURES[Arduino::FEATURE_MULTIPLE_SERIAL] = true;
-#else
-  const char* boardName = "UNKNOWN";
-#endif
+
+  static const unsigned long BOARD_UNKNOWN = 0x0;
+  static const unsigned long BOARD_UNO = 0x01;
+  static const unsigned long BOARD_ZERO = 0x02;
+  static const unsigned long BOARD_DUE = 0x03;
+  static const unsigned long BOARD_MICRO= 0x04;
+  static const unsigned long BOARD_YUN_400 = 0x05;
+  static const unsigned long BOARD_LEONARDO = 0x06;
+  static const unsigned long BOARD_MEGA = 0x07;
+  static const unsigned long BOARD_NANO = 0x08;
+  static const unsigned long BOARD_NANO_3 = 0x09;
+  static const unsigned long BOARD_LILYPAD = 0x08;
+  static const unsigned long BOARD_TRINKET = 0x09;
+
+
+  switch (Arduino::BOARD) {
+    case Arduino::BOARD_UNO:
+      strcpy(BOARD_NAME, "UNO");
+    break;
+    case Arduino::BOARD_ZERO:
+      strcpy(BOARD_NAME, "Zero");
+      FEATURES[Arduino::FEATURE_ANALOG_OUT] = true;
+    break;
+    case Arduino::BOARD_DUE:
+      strcpy(BOARD_NAME, "Due");
+      FEATURES[Arduino::FEATURE_ANALOG_OUT] = true;
+    break;
+    case Arduino::BOARD_MICRO:
+      strcpy(BOARD_NAME, "Micro");
+    break;
+    case Arduino::BOARD_YUN_400:
+      strcpy(BOARD_NAME, "Yun");
+    break;
+    case Arduino::BOARD_LEONARDO:
+      strcpy(BOARD_NAME, "Leonardo");
+    break;
+    case Arduino::BOARD_MEGA:
+      strcpy(BOARD_NAME, "Mega");
+      FEATURES[Arduino::FEATURE_MULTIPLE_SERIAL] = true;
+    break;
+    case Arduino::BOARD_NANO:
+    case Arduino::BOARD_NANO_3:
+      strcpy(BOARD_NAME, "Nano");
+    break;
+    case Arduino::BOARD_LILYPAD:
+      strcpy(BOARD_NAME, "Lilypad");
+    break;
+    case Arduino::BOARD_TRINKET:
+      strcpy(BOARD_NAME, "Trinket");
+    break;
+    case Arduino::BOARD_101:
+      strcpy(BOARD_NAME, "101");
+      FEATURES[Arduino::FEATURE_BLUETOOTH_4] = true;
+      FEATURES[Arduino::FEATURE_ACCELEROMETOR] = true;
+      FEATURES[Arduino::FEATURE_GYROSCOPE] = true;
+    break;
+    default:
+      strcpy(BOARD_NAME, "Unknown");
+
+  }
 
   strcpy(BOARD_NAME, boardName);
 }

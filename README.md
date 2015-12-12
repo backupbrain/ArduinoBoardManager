@@ -1,17 +1,15 @@
 # ArduinoManager
 
 
-Arduino library to determine the Arduino models and features,
-  as well as the SDK version.
+Arduino library to determine the Arduino models and features, as well as the SDK version.
 
-  Most features can be accessed via static variables.
-  You must instantiate if you want to know if the name of the board
-  or if specific features such exist, for example multiple serial
-  connections on the Arduino Mega.
+Most features can be accessed via static variables.
 
-  This list may be neither comprehensive nor up to date
+You must instantiate if you want to know if the name of the board or if specific features such exist, for example multiple serial connections on the Arduino Mega.
 
-  A full [list of boards and processor names][arduino_wiki] are available on Wikipedia:
+*This list may be neither comprehensive nor up to date*
+
+A full [List of boards and processor names][arduino_wiki] are available on Wikipedia:
 
 For more information, please see my blog article titled [Determine Arduino Board Model and Version Programmatically][blog_article]
 
@@ -31,7 +29,7 @@ void setup() {
   Serial.begin(9600);
   
   // The Arduino board name
-  Serial.print("Board is an Arduino ");
+  Serial.print("Board is compatible with Arduino ");
   Serial.println(arduino.BOARD_NAME);
   Serial.println();
   
@@ -55,6 +53,13 @@ void setup() {
   } else {
     Serial.println("Your board only supports one serial connection");
   }
+
+  if (arduino.featureExists(Arduino::FEATURE_ANALOG_OUT)) {
+    Serial.println("Your board supports analog out");
+  }
+  if (arduino.featureExists(Arduino::FEATURE_BLUETOOTH_4)) {
+    Serial.println("Your board supports bluetooth 4");
+  }
 }
 
 void loop() {
@@ -64,7 +69,7 @@ void loop() {
 Serial output will resemble this (tested of Arduino UNO)
 
 ```
-Board is an Arduino UNO
+Board is compatible with Arduino UNO
 
 SDK Version is: 164
 
