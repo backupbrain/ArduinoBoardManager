@@ -15,7 +15,7 @@ Arduino library to determine the Arduino models and features,
 
 For more information, please see my blog article titled [Determine Arduino Board Model and Version Programmatically][blog_article]
 
-[arduino_wiki]  https://en.wikipedia.org/wiki/List_of_Arduino_boards_and_compatible_systems
-[blog_article] http://tonygaitatzis.tumblr.com/post/134967126657/determine-arduino-board-model-and-version
+[arduino_wiki]:	https://en.wikipedia.org/wiki/List_of_Arduino_boards_and_compatible_systems
+[blog_article]:	http://tonygaitatzis.tumblr.com/post/134967126657/determine-arduino-board-model-and-version
 
 
