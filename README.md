@@ -61,7 +61,7 @@ void loop() {
 }
 ```
 
-Output will resemble this (tested of Arduino UNO)
+Serial output will resemble this (tested of Arduino UNO)
 
 ```
 Board is an Arduino UNO
