@@ -61,6 +61,18 @@ void loop() {
 }
 ```
 
+Output will resemble this (tested of Arduino UNO)
+
+```
+Board is an Arduino UNO
+
+SDK Version is: 164
+
+This UNO is an 8-bit, 16Mhz processor with 2k of SRAM and 32k of flash.
+
+Your board only supports one serial connection.
+```
+
 [arduino_wiki]:	https://en.wikipedia.org/wiki/List_of_Arduino_boards_and_compatible_systems
 [blog_article]:	http://tonygaitatzis.tumblr.com/post/134967126657/determine-arduino-board-model-and-version
 
