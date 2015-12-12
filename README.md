@@ -7,7 +7,7 @@ Most features can be accessed via static variables.
 
 You must instantiate if you want to know if the name of the board or if specific features such exist, for example multiple serial connections on the Arduino Mega.
 
-*This list may be neither comprehensive nor up to date*
+**This list may be neither comprehensive nor up to date**
 
 A full [List of boards and processor names][arduino_wiki] are available on Wikipedia:
 
