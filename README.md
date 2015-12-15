@@ -1,4 +1,4 @@
-# ArduinoManager
+# ArduinoBoardManager
 
 
 Arduino library to determine the Arduino models and features, as well as the SDK version.
