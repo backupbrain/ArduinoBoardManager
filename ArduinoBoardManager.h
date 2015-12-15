@@ -39,7 +39,7 @@
   #include <WProgram.h>
 #endif
 
-class Arduino {
+class ArduinoBoardManager {
  public:
   /**
    * Arduino IDE/SDK Version
@@ -195,7 +195,7 @@ class Arduino {
   /**
    * Instantiate board Manager
    */
-  Arduino();
+  ArduinoBoardManager();
   
   /**
    * Ask if a specific feature exists, e.g. Arduino::FEATURE_MULTIPLE_SERIAL
