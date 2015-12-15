@@ -55,64 +55,64 @@ ArduinoBoardManager::ArduinoBoardManager() {
   static const unsigned long BOARD_TRINKET = 0x09;
 
 
-  switch (Arduino::BOARD) {
-    case Arduino::BOARD_UNO:
+  switch (ArduinoBoardManager::BOARD) {
+    case ArduinoBoardManager::BOARD_UNO:
       strcpy(BOARD_NAME, "UNO");
       strcpy(CPU_NAME, "ATmega328P");
     break;
-    case Arduino::BOARD_ZERO:
+    case ArduinoBoardManager::BOARD_ZERO:
       strcpy(BOARD_NAME, "Zero");
       strcpy(CPU_NAME, "ATSAMD21G18A");
-      FEATURES[Arduino::FEATURE_ANALOG_OUT] = true;
+      FEATURES[ArduinoBoardManager::FEATURE_ANALOG_OUT] = true;
     break;
-    case Arduino::BOARD_DUE:
+    case ArduinoBoardManager::BOARD_DUE:
       strcpy(BOARD_NAME, "Due");
       strcpy(CPU_NAME, "ATSAM3X8E");
-      FEATURES[Arduino::FEATURE_ANALOG_OUT] = true;
+      FEATURES[ArduinoBoardManager::FEATURE_ANALOG_OUT] = true;
     break;
-    case Arduino::BOARD_MICRO:
+    case ArduinoBoardManager::BOARD_MICRO:
       strcpy(BOARD_NAME, "Micro");
       strcpy(CPU_NAME, "Atmega32U4");
     break;
-    case Arduino::BOARD_YUN_400:
+    case ArduinoBoardManager::BOARD_YUN_400:
       strcpy(BOARD_NAME, "Yun");
       strcpy(CPU_NAME, "AR9331");
     break;
-    case Arduino::BOARD_LEONARDO:
+    case ArduinoBoardManager::BOARD_LEONARDO:
       strcpy(BOARD_NAME, "Leonardo");
       strcpy(CPU_NAME, "ATmega16U4");
     break;
-    case Arduino::BOARD_MEGA:
+    case ArduinoBoardManager::BOARD_MEGA:
       strcpy(BOARD_NAME, "Mega");
       strcpy(CPU_NAME, "ATmega1280");
-      FEATURES[Arduino::FEATURE_MULTIPLE_SERIAL] = true;
+      FEATURES[ArduinoBoardManager::FEATURE_MULTIPLE_SERIAL] = true;
     break;
-    case Arduino::BOARD_NANO:
+    case ArduinoBoardManager::BOARD_NANO:
       strcpy(BOARD_NAME, "Nano");
       strcpy(CPU_NAME, "ATmega168");
     break;
-    case Arduino::BOARD_NANO_3:
+    case ArduinoBoardManager::BOARD_NANO_3:
       strcpy(BOARD_NAME, "Nano");
       strcpy(CPU_NAME, "ATmega328");
     break;
-    case Arduino::BOARD_LILYPAD:
+    case ArduinoBoardManager::BOARD_LILYPAD:
       strcpy(BOARD_NAME, "Lilypad");
       strcpy(CPU_NAME, "ATmega168V");
     break;
-    case Arduino::BOARD_LILYPAD_2:
+    case ArduinoBoardManager::BOARD_LILYPAD_2:
       strcpy(BOARD_NAME, "Lilypad");
       strcpy(CPU_NAME, "ATmega328V");
     break;
-    case Arduino::BOARD_TRINKET:
+    case ArduinoBoardManager::BOARD_TRINKET:
       strcpy(BOARD_NAME, "Trinket");
       strcpy(CPU_NAME, "ATTiny85");
     break;
-    case Arduino::BOARD_101:
+    case ArduinoBoardManager::BOARD_101:
       strcpy(BOARD_NAME, "101");
       strcpy(CPU_NAME, "ARCv2EM");
-      FEATURES[Arduino::FEATURE_BLUETOOTH_4] = true;
-      FEATURES[Arduino::FEATURE_ACCELEROMETER] = true;
-      FEATURES[Arduino::FEATURE_GYROSCOPE] = true;
+      FEATURES[ArduinoBoardManager::FEATURE_BLUETOOTH_4] = true;
+      FEATURES[ArduinoBoardManager::FEATURE_ACCELEROMETER] = true;
+      FEATURES[ArduinoBoardManager::FEATURE_GYROSCOPE] = true;
     break;
     default:
       strcpy(BOARD_NAME, "Unknown");
@@ -124,8 +124,8 @@ ArduinoBoardManager::ArduinoBoardManager() {
 
 
 bool ArduinoBoardManager::featureExists(uint8_t feature) {
-  if ((feature < Arduino::NUM_FEATURES) &&
-     (Arduino::FEATURES[feature]))
+  if ((feature < ArduinoBoardManager::NUM_FEATURES) &&
+     (ArduinoBoardManager::FEATURES[feature]))
       return true;
   return false;
 }
