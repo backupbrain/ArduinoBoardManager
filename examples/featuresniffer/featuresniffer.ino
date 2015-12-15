@@ -1,7 +1,7 @@
 #include "ArduinoBoardManager.h"
 
 
-Arduino arduino = Arduino();
+ArduinoBoardManager arduino = ArduinoBoardManager();
 
 void setup() {
   unsigned long M = 1000000;

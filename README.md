@@ -21,7 +21,7 @@ After downloading, rename folder to 'ArduinoManager' and install in Arduino Libr
 ```c
 #include <ArduinoBoardManager.h>
 
-ArdunioManager arduino = ArduinoManager(); // required if you want to know the board name and specific features
+ArduinoBoardManager arduino = ArduinoBoardManager(); // required if you want to know the board name and specific features
 
 void setup() {
   unsigned long M = 1000000;
@@ -73,7 +73,7 @@ Serial output will resemble this (tested of Arduino UNO)
 ```
 Board is compatible with Arduino UNO
 
-SDK Version is: 164
+SDK Version is: 10604
 
 This UNO is an 8-bit, 16Mhz processor with 2k of SRAM and 32k of flash.
 
