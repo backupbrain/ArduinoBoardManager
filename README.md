@@ -26,6 +26,8 @@ ArdunioManager arduino = ArduinoManager(); // required if you want to know the b
 void setup() {
   unsigned long M = 1000000;
   unsigned int k = 1000;
+  while(!Serial);
+  while(!Serial1);
   Serial.begin(9600);
   
   // The Arduino board name
