@@ -7,6 +7,8 @@ void setup() {
   unsigned long M = 1000000;
   unsigned int k = 1000;
   Serial.begin(9600);
+
+  while(!Serial); // on Leonardo/Micro, wait for serial
   
   // The Arduino board name
   Serial.print("Board is compatible with Arduino ");

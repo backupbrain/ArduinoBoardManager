@@ -19,7 +19,7 @@ After downloading, rename folder to 'ArduinoManager' and install in Arduino Libr
 
 ## Usage
 ```c
-#include <ArduinoManager.h>
+#include <ArduinoBoardManager.h>
 
 ArdunioManager arduino = ArduinoManager(); // required if you want to know the board name and specific features
 
@@ -27,6 +27,8 @@ void setup() {
   unsigned long M = 1000000;
   unsigned int k = 1000;
   Serial.begin(9600);
+
+  while(!Serial); // on Leonardo/Micro, wait for serial
   
   // The Arduino board name
   Serial.print("Board is compatible with Arduino ");
