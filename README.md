@@ -27,6 +27,8 @@ ArduinoBoardManager arduino = ArduinoBoardManager();
 void setup() {
   unsigned long M = 1000000;
   unsigned int k = 1000;
+  while(!Serial);
+  while(!Serial1);
   Serial.begin(9600);
 
   while(!Serial); // on Leonardo/Micro, wait for serial
