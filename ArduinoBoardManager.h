@@ -93,105 +93,105 @@ class ArduinoBoardManager {
    * CPU Specifications
    */
 #if defined(__AVR_ATmega328P__) // uno, fio
-  static const uint8_t BOARD = 0x01;           /**< UNO board */
+  static const uint8_t BOARD = BOARD_UNO;           /**< UNO board */
   static const uint8_t NUM_BITS = 8;            /**< 8-bit processor */
   static const uint16_t CPU = __AVR_ATmega328P__;     /**< 16Mhz */
   static const unsigned long SRAM_SIZE = 2000;       /**< 2kb of sram */
   static const unsigned long EEPROM_SIZE = 1000;     /**< 1kb eeprom */
   static const unsigned long FLASH_SIZE = 32000;     /**< 32k flash storage */
 #elif defined(__AVR_ATSAMD21G18A__) // zero
-  static const uint8_t BOARD = 0x02
+  static const uint8_t BOARD = BOARD_ZERO
   static const uint8_t NUM_BITS = 8;
   static const uint16_t CPU = __AVR_ATSAMD21G18A__;
   static const unsigned long SRAM_SIZE = 32000;
   static const unsigned long EEPROM_SIZE = 16000;
   static const unsigned long FLASH_SIZE = 256000;
 #elif defined(__AVR_ATSAM3X8E__) // Due
-  static const uint8_t BOARD = 0x03;
+  static const uint8_t BOARD = BOARD_DUE;
   static const uint8_t NUM_BITS = 8;
   static const uint16_t CPU = __AVR_ATSAMD21G18A__;
   static const unsigned long SRAM_SIZE = 96000;
   static const unsigned long EEPROM_SIZE = 0;
   static const unsigned long FLASH_SIZE = 512000;
 #elif defined(__AVR_Atmega32U4__) // Yun 16Mhz, Micro, Leonardo, Esplora
-  static const uint8_t BOARD = 0x04;
+  static const uint8_t BOARD = BOARD_MICRO;
   static const uint8_t NUM_BITS = 8;
   static const uint16_t CPU = __AVR_Atmega32U4__;
   static const unsigned long SRAM_SIZE = 2500;
   static const unsigned long EEPROM_SIZE = 1000;
   static const unsigned long FLASH_SIZE = 32000;
 #elif defined(_AVR_AR9331__) // Yun 400Mhz
-  static const uint8_t BOARD = 0x05;
+  static const uint8_t BOARD = BOARD_YUN_400;
   static const uint8_t NUM_BITS = 8;
   static const uint16_t CPU = _AVR_AR9331__;
   static const unsigned long SRAM_SIZE = 64000000;
   static const unsigned long EEPROM_SIZE = 0;
   static const unsigned long FLASH_SIZE = 16000000;
 #elif defined(__AVR_ATmega16U4__) // leonardo
-  static const uint8_t BOARD = 0x06;
+  static const uint8_t BOARD = BOARD_LEONARDO;
   static const uint8_t NUM_BITS = 8;
   static const uint16_t CPU = __AVR_ATmega16U4__;
   static const unsigned long SRAM_SIZE = 2560;
   static const unsigned long EEPROM_SIZE = 1000;
   static const unsigned long FLASH_SIZE = 32000;
 #elif defined(__AVR_ATmega1280__) // mega, Mega ADK (ATmega 1280)
-  static const uint8_t BOARD = 0x07;
+  static const uint8_t BOARD = BOARD_MEGA;
   static const uint8_t NUM_BITS = 8;
   static const uint16_t CPU = __AVR_ATmega1280__;
   static const unsigned long SRAM_SIZE = 8000;
   static const unsigned long EEPROM_SIZE = 4000;
   static const unsigned long FLASH_SIZE = 256000;
 #elif defined(__AVR_ATmega2560__) // mega, Mega ADK (ATmega 2560)
-    static const uint8_t BOARD = 0x07;
+    static const uint8_t BOARD = BOARD_MEGA;
     static const uint8_t NUM_BITS = 8;
     static const uint16_t CPU = __AVR_ATmega2560__;
     static const unsigned long SRAM_SIZE = 8000;
     static const unsigned long EEPROM_SIZE = 4000;
     static const unsigned long FLASH_SIZE = 256000;
 #elif defined(_AVR_ATmega328__) // Nano >= v3.0 or Arduino Pro, pro328, ethernet
-  static const uint8_t BOARD = 0x08;
+  static const uint8_t BOARD = BOARD_NANO;
   static const uint8_t NUM_BITS = 8;
   static const uint16_t CPU = _AVR_ATmega328__;
   static const unsigned long SRAM_SIZE = 2000;
   static const unsigned long EEPROM_SIZE = 1000;
   static const unsigned long FLASH_SIZE = 32000;
 #elif defined(_AVR_ATmega168__) // Nano < v3.0 or uno, pro
-  static const uint8_t BOARD = 0x09;
+  static const uint8_t BOARD = BOARD_NANO_3;
   static const uint8_t NUM_BITS = 8;
   static const uint16_t CPU = _AVR_ATmega168;
   static const unsigned long SRAM_SIZE = 1000;
   static const unsigned long EEPROM_SIZE = 500;
   static const unsigned long FLASH_SIZE = 16000;
 #elif defined(_AVR_ATmega168V__) // LilyPad
-  static const uint8_t BOARD = 0x0a;
+  static const uint8_t BOARD = BOARD_LILYPAD;
   static const uint8_t CPU = _AVR_ATmega168V__;
   static const unsigned int NUM_BITS = 8;
   static const unsigned long SRAM_SIZE = 1000;
   static const unsigned long EEPROM_SIZE = 500;
   static const unsigned long FLASH_SIZE = 14000
 #elif defined(_AVR_ATmega328V__) // LilyPad 2
-  static const uint8_t BOARD = 0x0b;
+  static const uint8_t BOARD = BOARD_LILYPAD_2;
   static const uint8_t CPU = _AVR_ATmega328V__;
   static const unsigned int NUM_BITS = 8;
   static const unsigned long SRAM_SIZE = 1000;
   static const unsigned long EEPROM_SIZE = 500;
   static const unsigned long FLASH_SIZE = 14000
 #elif defined(_AVR_ATTiny85__) // trinket
-  static const uint8_t BOARD = 0x0c;
+  static const uint8_t BOARD = BOARD_TRINKET;
   static const uint8_t NUM_BITS = 8;
   static const uint16_t CPU = _AVR_ATTiny85__;
   static const unsigned long SRAM_SIZE = 500;
   static const unsigned long EEPROM_SIZE = 500;
   static const unsigned long FLASH_SIZE = 2500;
 #elif  defined(__AVR_ARCv2EM__) || (__CURIE_FACTORY_DATA_H_) // Intel Curie/101
-  static const uint8_t BOARD = 0x0d;
+  static const uint8_t BOARD = BOARD_101;
   static const uint8_t NUM_BITS = 32;
   static const uint16_t CPU = __AVR_ARCv2EM__;
   static const unsigned long SRAM_SIZE = 24000; // might be 80k?
   static const unsigned long EEPROM_SIZE = 0;
   static const unsigned long FLASH_SIZE = 384000;
 #else
-  static const uint8_t BOARD = 0x00;
+  static const uint8_t BOARD = BOARD_UNKNOWN;
   static const uint8_t NUM_BITS = 0;
   static const uint16_t CPU = 0;
   static const unsigned long SRAM_SIZE = 0;
