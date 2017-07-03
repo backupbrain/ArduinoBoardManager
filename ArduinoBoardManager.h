@@ -15,7 +15,8 @@
   @author Tony Gaitatzis backupbrain@gmail.com
   @date 2015-12-10
 
-  -------------------------------------------------------------------------
+ -------------------------------------------------------------------------
+
   This file is part of the Arduino Board Manager library
 
   NeoPixel is free software: you can redistribute it and/or modify
@@ -49,8 +50,8 @@ class ArduinoBoardManager {
   /**
    * Board Name 
    */
-  static const uint8_t MAX_BOARD_NAME_LENGTH = 16; 
-  static const uint8_t MAX_CPU_NAME_LENGTH = 16;        
+  static const uint8_t MAX_BOARD_NAME_LENGTH = 16;
+  static const uint8_t MAX_CPU_NAME_LENGTH = 16;
   char BOARD_NAME[MAX_BOARD_NAME_LENGTH];                       /**< When instantiated, this is the board name, eg "UNO" */    
   char CPU_NAME[MAX_CPU_NAME_LENGTH];                       /**< When instantiated, this is the cpu name, eg "__AVR_ATmega328P__" */
 
@@ -61,7 +62,7 @@ class ArduinoBoardManager {
   static const uint8_t BOARD_UNO = 0x01;
   static const uint8_t BOARD_ZERO = 0x02;
   static const uint8_t BOARD_DUE = 0x03;
-  static const uint8_t BOARD_MICRO= 0x04;
+  static const uint8_t BOARD_MICRO = 0x04;
   static const uint8_t BOARD_YUN_400 = 0x05;
   static const uint8_t BOARD_LEONARDO = 0x06;
   static const uint8_t BOARD_MEGA = 0x07;
@@ -75,19 +76,18 @@ class ArduinoBoardManager {
   /**
    * Known Arduino Features 
    */
-  static const uint8_t NUM_FEATURES = 1;
-  static const uint8_t FEATURE_MULTIPLE_SERIAL = 0x00;
-  static const uint8_t FEATURE_BLUETOOTH_4 = 0x01;
-  static const uint8_t FEATURE_ACCELEROMETER = 0x02;
-  static const uint8_t FEATURE_GYROSCOPE = 0x03;
-  static const uint8_t FEATURE_ANALOG_OUT = 0x04;
+  static const uint8_t FEATURE_MULTIPLE_SERIAL = 0x01;
+  static const uint8_t FEATURE_BLUETOOTH_4 = 0x02;
+  static const uint8_t FEATURE_ACCELEROMETER = 0x04;
+  static const uint8_t FEATURE_GYROSCOPE = 0x08;
+  static const uint8_t FEATURE_ANALOG_OUT = 0x10;
 
   /**
    * CPU speed
    */
   static const unsigned long MAX_MHZ = F_CPU;
-  
-  boolean FEATURES[NUM_FEATURES];
+
+    uint8_t m_features;
   
   /**
    * CPU Specifications
@@ -134,13 +134,20 @@ class ArduinoBoardManager {
   static const unsigned long SRAM_SIZE = 2560;
   static const unsigned long EEPROM_SIZE = 1000;
   static const unsigned long FLASH_SIZE = 32000;
-#elif defined(__AVR_ATmega1280__) || defined(__AVR_ATmega2560__) // mega, Mega ADK
+#elif defined(__AVR_ATmega1280__) // mega, Mega ADK (ATmega 1280)
   static const uint8_t BOARD = 0x07;
   static const uint8_t NUM_BITS = 8;
   static const uint16_t CPU = __AVR_ATmega1280__;
   static const unsigned long SRAM_SIZE = 8000;
   static const unsigned long EEPROM_SIZE = 4000;
   static const unsigned long FLASH_SIZE = 256000;
+#elif defined(__AVR_ATmega2560__) // mega, Mega ADK (ATmega 2560)
+    static const uint8_t BOARD = 0x07;
+    static const uint8_t NUM_BITS = 8;
+    static const uint16_t CPU = __AVR_ATmega2560__;
+    static const unsigned long SRAM_SIZE = 8000;
+    static const unsigned long EEPROM_SIZE = 4000;
+    static const unsigned long FLASH_SIZE = 256000;
 #elif defined(_AVR_ATmega328__) // Nano >= v3.0 or Arduino Pro, pro328, ethernet
   static const uint8_t BOARD = 0x08;
   static const uint8_t NUM_BITS = 8;

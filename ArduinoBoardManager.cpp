@@ -37,23 +37,7 @@
 
 ArduinoBoardManager::ArduinoBoardManager() {
   // clear the features
-  memset(FEATURES, false, NUM_FEATURES);
-
-
-
-  static const unsigned long BOARD_UNKNOWN = 0x0;
-  static const unsigned long BOARD_UNO = 0x01;
-  static const unsigned long BOARD_ZERO = 0x02;
-  static const unsigned long BOARD_DUE = 0x03;
-  static const unsigned long BOARD_MICRO= 0x04;
-  static const unsigned long BOARD_YUN_400 = 0x05;
-  static const unsigned long BOARD_LEONARDO = 0x06;
-  static const unsigned long BOARD_MEGA = 0x07;
-  static const unsigned long BOARD_NANO = 0x08;
-  static const unsigned long BOARD_NANO_3 = 0x09;
-  static const unsigned long BOARD_LILYPAD = 0x08;
-  static const unsigned long BOARD_TRINKET = 0x09;
-
+    m_features = 0;
 
   switch (ArduinoBoardManager::BOARD) {
     case ArduinoBoardManager::BOARD_UNO:
@@ -63,12 +47,12 @@ ArduinoBoardManager::ArduinoBoardManager() {
     case ArduinoBoardManager::BOARD_ZERO:
       strcpy(BOARD_NAME, "Zero");
       strcpy(CPU_NAME, "ATSAMD21G18A");
-      FEATURES[ArduinoBoardManager::FEATURE_ANALOG_OUT] = true;
+      m_features = FEATURE_ANALOG_OUT;
     break;
     case ArduinoBoardManager::BOARD_DUE:
       strcpy(BOARD_NAME, "Due");
       strcpy(CPU_NAME, "ATSAM3X8E");
-      FEATURES[ArduinoBoardManager::FEATURE_ANALOG_OUT] = true;
+      m_features = FEATURE_ANALOG_OUT;
     break;
     case ArduinoBoardManager::BOARD_MICRO:
       strcpy(BOARD_NAME, "Micro");
@@ -85,7 +69,7 @@ ArduinoBoardManager::ArduinoBoardManager() {
     case ArduinoBoardManager::BOARD_MEGA:
       strcpy(BOARD_NAME, "Mega");
       strcpy(CPU_NAME, "ATmega1280");
-      FEATURES[ArduinoBoardManager::FEATURE_MULTIPLE_SERIAL] = true;
+      m_features = FEATURE_MULTIPLE_SERIAL;
     break;
     case ArduinoBoardManager::BOARD_NANO:
       strcpy(BOARD_NAME, "Nano");
@@ -110,23 +94,16 @@ ArduinoBoardManager::ArduinoBoardManager() {
     case ArduinoBoardManager::BOARD_101:
       strcpy(BOARD_NAME, "101");
       strcpy(CPU_NAME, "ARCv2EM");
-      FEATURES[ArduinoBoardManager::FEATURE_BLUETOOTH_4] = true;
-      FEATURES[ArduinoBoardManager::FEATURE_ACCELEROMETER] = true;
-      FEATURES[ArduinoBoardManager::FEATURE_GYROSCOPE] = true;
+      m_features = FEATURE_BLUETOOTH_4 | FEATURE_ACCELEROMETER | FEATURE_GYROSCOPE;
     break;
     default:
       strcpy(BOARD_NAME, "Unknown");
       strcpy(CPU_NAME, "Unknown");
-
+    break;
   }
-
 }
 
-
 bool ArduinoBoardManager::featureExists(uint8_t feature) {
-  if ((feature < ArduinoBoardManager::NUM_FEATURES) &&
-     (ArduinoBoardManager::FEATURES[feature]))
-      return true;
-  return false;
+    return m_features & feature;
 }
 
