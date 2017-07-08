@@ -7,11 +7,11 @@
 
   Most features can be accessed via static variables.
   You must instantiate if you want to know if the name of the board
-  or if specific features such exist, for example multiple serial 
+  or if specific features such exist, for example multiple serial
   connections on the Arduino Mega.
 
   This list may be neither comprehensive nor up to date
-  
+
   A full list of boards and processor names are available on Wikipedia:
   https://en.wikipedia.org/wiki/List_of_Arduino_boards_and_compatible_systems
 
@@ -36,7 +36,7 @@
   License along with NeoPixel.  If not, see
   <http://www.gnu.org/licenses/>.
   -------------------------------------------------------------------------*/
-  
+
 #if ARDUINO >= 100
   #include <Arduino.h>
 #else
@@ -51,7 +51,7 @@ class ArduinoBoardManager {
   static const uint16_t SDK_VERSION = ARDUINO;        /**< Arduino SDK Version */
 
   /**
-   * Board Name 
+   * Board Name
    */
   static const uint8_t MAX_BOARD_NAME_LENGTH = 16;
   static const uint8_t MAX_CPU_NAME_LENGTH = 16;
@@ -68,13 +68,14 @@ class ArduinoBoardManager {
   static const uint8_t BOARD_MICRO = 0x04;
   static const uint8_t BOARD_YUN_400 = 0x05;
   static const uint8_t BOARD_LEONARDO = 0x06;
-  static const uint8_t BOARD_MEGA = 0x07;
-  static const uint8_t BOARD_NANO = 0x08;
-  static const uint8_t BOARD_NANO_3 = 0x09;
-  static const uint8_t BOARD_LILYPAD = 0x0a;
-  static const uint8_t BOARD_LILYPAD_2 = 0x0b;
-  static const uint8_t BOARD_TRINKET = 0x0c;
-  static const uint8_t BOARD_101 = 0x0d;
+  static const uint8_t BOARD_MEGA_1280 = 0x07;
+  static const uint8_t BOARD_MEGA_2560 = 0x08;
+  static const uint8_t BOARD_NANO = 0x09;
+  static const uint8_t BOARD_NANO_3 = 0x0a;
+  static const uint8_t BOARD_LILYPAD = 0x0b;
+  static const uint8_t BOARD_LILYPAD_2 = 0x0c;
+  static const uint8_t BOARD_TRINKET = 0x0d;
+  static const uint8_t BOARD_101 = 0x0e;
 
   /**
    * Known Arduino Features 
@@ -138,14 +139,14 @@ class ArduinoBoardManager {
   static const unsigned long EEPROM_SIZE = 1000;
   static const unsigned long FLASH_SIZE = 32000;
 #elif defined(__AVR_ATmega1280__) // mega, Mega ADK (ATmega 1280)
-  static const uint8_t BOARD = BOARD_MEGA;
+  static const uint8_t BOARD = BOARD_MEGA_1280;
   static const uint8_t NUM_BITS = 8;
   static const uint16_t CPU = __AVR_ATmega1280__;
   static const unsigned long SRAM_SIZE = 8000;
   static const unsigned long EEPROM_SIZE = 4000;
   static const unsigned long FLASH_SIZE = 256000;
 #elif defined(__AVR_ATmega2560__) // mega, Mega ADK (ATmega 2560)
-    static const uint8_t BOARD = BOARD_MEGA;
+    static const uint8_t BOARD = BOARD_MEGA_2560;
     static const uint8_t NUM_BITS = 8;
     static const uint16_t CPU = __AVR_ATmega2560__;
     static const unsigned long SRAM_SIZE = 8000;

@@ -66,11 +66,16 @@ ArduinoBoardManager::ArduinoBoardManager() {
       strcpy(BOARD_NAME, "Leonardo");
       strcpy(CPU_NAME, "ATmega16U4");
     break;
-    case ArduinoBoardManager::BOARD_MEGA:
+    case ArduinoBoardManager::BOARD_MEGA_1280:
       strcpy(BOARD_NAME, "Mega");
       strcpy(CPU_NAME, "ATmega1280");
       m_features = FEATURE_MULTIPLE_SERIAL;
     break;
+    case ArduinoBoardManager::BOARD_MEGA_2560:
+      strcpy(BOARD_NAME, "Mega");
+      strcpy(CPU_NAME, "ATmega2560");
+      m_features = FEATURE_MULTIPLE_SERIAL;
+      break;
     case ArduinoBoardManager::BOARD_NANO:
       strcpy(BOARD_NAME, "Nano");
       strcpy(CPU_NAME, "ATmega168");
