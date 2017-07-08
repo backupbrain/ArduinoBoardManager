@@ -1,6 +1,5 @@
 #include <ArduinoBoardManager.h>
 
-
 ArduinoBoardManager arduino = ArduinoBoardManager();
 
 void setup() {
@@ -25,7 +24,8 @@ void setup() {
   Serial.print(" is an "); Serial.print(ArduinoBoardManager::NUM_BITS);
   Serial.print("-bit, "); Serial.print(ArduinoBoardManager::MAX_MHZ/M);
   Serial.print("Mhz processor with "); Serial.print(ArduinoBoardManager::SRAM_SIZE/k);
-  Serial.print("k of SRAM and "); Serial.print(ArduinoBoardManager::FLASH_SIZE/k);
+  Serial.print("k of SRAM, "); Serial.print(ArduinoBoardManager::EEPROM_SIZE/k);
+  Serial.print("k of EEPROM and "); Serial.print(ArduinoBoardManager::FLASH_SIZE/k);
   Serial.println("k of flash.");
   Serial.println();
   
@@ -43,7 +43,6 @@ void setup() {
     Serial.println("Your board supports bluetooth 4");
   }
 }
-
 
 void loop() {
 }
