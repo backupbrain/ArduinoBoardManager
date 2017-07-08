@@ -1,3 +1,6 @@
+#ifndef _Arduino_Board_Manager_h_
+#define _Arduino_Board_Manager_h_
+
 /*-------------------------------------------------------------------------
   Arduino library to determine the Arduino models and features,
   as well as the SDK version.
@@ -214,3 +217,4 @@ class ArduinoBoardManager {
   
 };
 
+#endif
