@@ -1,6 +1,5 @@
 #include <ArduinoBoardManager.h>
 
-
 ArduinoBoardManager arduino = ArduinoBoardManager();
 
 void setup() {
@@ -8,7 +7,9 @@ void setup() {
   unsigned int k = 1000;
   Serial.begin(9600);
 
-  while(!Serial); // on Leonardo/Micro, wait for serial
+  while(!Serial) {
+    // on Leonardo/Micro, wait for serial
+  }
   
   // The Arduino board name
   Serial.print("Board is compatible with Arduino ");
@@ -25,25 +26,35 @@ void setup() {
   Serial.print(" is an "); Serial.print(ArduinoBoardManager::NUM_BITS);
   Serial.print("-bit, "); Serial.print(ArduinoBoardManager::MAX_MHZ/M);
   Serial.print("Mhz processor with "); Serial.print(ArduinoBoardManager::SRAM_SIZE/k);
-  Serial.print("k of SRAM and "); Serial.print(ArduinoBoardManager::FLASH_SIZE/k);
+  Serial.print("k of SRAM, "); Serial.print(ArduinoBoardManager::EEPROM_SIZE/k);
+  Serial.print("k of EEPROM and "); Serial.print(ArduinoBoardManager::FLASH_SIZE/k);
   Serial.println("k of flash.");
   Serial.println();
   
   // Board features (multiple serial ports on Mega, for example)
-  if (arduino.featureExists(ArduinoBoardManager::FEATURE_MULTIPLE_SERIAL)) {
+  if(arduino.featureExists(ArduinoBoardManager::FEATURE_MULTIPLE_SERIAL)) {
     Serial.println("Your board supports multiple serial connections");
-  } else {
+  } 
+  else {
     Serial.println("Your board only supports one serial connection");
   }
 
-  if (arduino.featureExists(ArduinoBoardManager::FEATURE_ANALOG_OUT)) {
+  if(arduino.featureExists(ArduinoBoardManager::FEATURE_ANALOG_OUT)) {
     Serial.println("Your board supports analog out");
   }
-  if (arduino.featureExists(ArduinoBoardManager::FEATURE_BLUETOOTH_4)) {
+
+  if(arduino.featureExists(ArduinoBoardManager::FEATURE_BLUETOOTH_4)) {
     Serial.println("Your board supports bluetooth 4");
   }
-}
 
+  if(arduino.featureExists(ArduinoBoardManager::FEATURE_ACCELEROMETER)) {
+    Serial.println("Your board supports accelerometer");
+  }
+
+  if(arduino.featureExists(ArduinoBoardManager::FEATURE_GYROSCOPE)) {
+    Serial.println("Your board supports gyroscope");
+  }
+}
 
 void loop() {
 }
